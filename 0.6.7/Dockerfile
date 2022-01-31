@@ -8,7 +8,10 @@ ENV PATH $APIFW_PATH:$PATH
 RUN set -eux; \
     adduser -u 1000 -H -h /opt -D -s /bin/sh api-firewall
 
-RUN set -eux; \	
+RUN set -eux; \
+    \
+    apk add --no-cache wget; \
+    \
     arch="$(apk --print-arch)"; \
     case "$arch" in \
         'x86_64') \
