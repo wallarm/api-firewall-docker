@@ -8,9 +8,4 @@ if [ "$#" -eq 0 ] || [ "${1#-}" != "$1" ]; then
     set -- api-firewall "$@"
 fi
 
-if [ "$1" = 'api-firewall' ]; then
-	shift # "api-firewall"
-	set -- api-firewall "$@"
-fi
-
 exec "$@"

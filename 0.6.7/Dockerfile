@@ -1,12 +1,12 @@
 FROM alpine:3.15
 
-ENV APIFIREWALL_VERSION v0.6.7
-
 ENV APIFW_PATH /opt/api-firewall
 ENV PATH $APIFW_PATH:$PATH
 
 RUN set -eux; \
     adduser -u 1000 -H -h /opt -D -s /bin/sh api-firewall
+
+ENV APIFIREWALL_VERSION v0.6.7
 
 RUN set -eux; \
     \
@@ -43,9 +43,6 @@ RUN set -eux; \
     api-firewall -v
 
 COPY docker-entrypoint.sh $APIFW_PATH/
-
-RUN chmod 755 $APIFW_PATH/api-firewall; \
-    chmod 755 $APIFW_PATH/docker-entrypoint.sh
 
 USER api-firewall
 ENTRYPOINT ["docker-entrypoint.sh"]
