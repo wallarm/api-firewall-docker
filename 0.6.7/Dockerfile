@@ -39,6 +39,8 @@ RUN set -eux; \
     tar -xzf api-firewall.tar.gz -C "$APIFW_PATH" --strip-components 1; \
     rm api-firewall.tar.gz; \
     \
+    chmod 755 $APIFW_PATH/api-firewall; \
+    \
 # smoke test
     api-firewall -v
 
