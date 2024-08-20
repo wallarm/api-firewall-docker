@@ -6,7 +6,7 @@ ENV PATH $APIFW_PATH:$PATH
 RUN set -eux; \
     adduser -u 1000 -H -h /opt -D -s /bin/sh api-firewall
 
-ENV APIFIREWALL_VERSION v0.7.4
+ENV APIFIREWALL_VERSION v0.8.0
 
 RUN set -eux; \
     \
@@ -16,15 +16,15 @@ RUN set -eux; \
     case "$arch" in \
         'x86_64') \
             url="https://github.com/wallarm/api-firewall/releases/download/${APIFIREWALL_VERSION}/api-firewall-amd64-musl.tar.gz"; \
-            sha256='176bbcd6165de7dc03184fe64eb2018e129a130b41fd4f5908a81dd50fcabeb0'; \
+            sha256='014461629090796aeb06739580f36cfbbce9b81ad9d38abca37574151dcc800c'; \
             ;; \
         'aarch64') \
             url="https://github.com/wallarm/api-firewall/releases/download/${APIFIREWALL_VERSION}/api-firewall-arm64-musl.tar.gz"; \
-            sha256='24e67d30b5f32138a6b83dbaee886af2d4084c0b29e197b80378f4414b6079c9'; \
+            sha256='94df745b7809cdba394e31fdf535525edc11d611651cd9fbc055cdb43c4bc509'; \
             ;; \
         'x86') \
             url="https://github.com/wallarm/api-firewall/releases/download/${APIFIREWALL_VERSION}/api-firewall-386-musl.tar.gz"; \
-            sha256='75f92885364801f9af7c64cff91529745bad5d1f88ebe20053ab99311eab91e6'; \
+            sha256='f2dba11a265fd3aa7eccb73a2ae3379cd7915ae47ff84b5a93c597bad216e9a5'; \
             ;; \
         *) \
             echo >&2 "error: current architecture ($arch) does not have a corresponding API-Firewall binary release"; \
